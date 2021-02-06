@@ -1,0 +1,799 @@
+{
+	"info": {
+		"_postman_id": "deef3a3e-f168-4e43-aafa-a1bac0705485",
+		"name": "Points Project Example Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Balance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						":user_id",
+						"balance"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Balance (After Adds)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:20:46 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "{\"balance\":[{\"payer\":\"DANNON\",\"points\":1100},{\"payer\":\"UNILEVER\",\"points\":200},{\"payer\":\"MILLER COORS\",\"points\":10000}]}"
+				},
+				{
+					"name": "Get Balance (After Adds and Deduction)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:22:02 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "{\"balance\":[{\"payer\":\"DANNON\",\"points\":1000},{\"payer\":\"MILLER COORS\",\"points\":5300}]}"
+				}
+			]
+		},
+		{
+			"name": "Add Balance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"payer\":\"DANNON\",\"points\":300,\"timestamp\":\"2020-10-31T10:00:00.00Z\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						":user_id",
+						"balance"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Balance (DANNON -200)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"payer\":\"DANNON\",\"points\":-200,\"timestamp\":\"2020-10-31T15:00:00.00Z\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:19:22 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Add Balance (DANNON 1000)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"payer\":\"DANNON\",\"points\":1000,\"timestamp\":\"2020-11-02T14:00:00.00Z\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:20:25 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Add Balance (DANNON 300)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"payer\":\"DANNON\",\"points\":300,\"timestamp\":\"2020-10-31T10:00:00.00Z\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:17:40 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Add Balance (UNILEVER 200)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"payer\":\"UNILEVER\",\"points\":200,\"timestamp\":\"2020-10-31T11:00:00.00Z\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:18:46 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Add Balance (MILLER COORS 10000)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"payer\":\"MILLER COORS\",\"points\":10000,\"timestamp\":\"2020-11-01T02:00:00.00Z\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"balance"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:19:53 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Deduct Balance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"points\":5000}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/:user_id/payout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						":user_id",
+						"payout"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Deduct Balance (After Adds)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"points\":5000}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/payout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"payout"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:21:26 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "{\"deductions\":[{\"payer\":\"DANNON\",\"points\":-100,\"timestamp\":\"now\"},{\"payer\":\"UNILEVER\",\"points\":-200,\"timestamp\":\"now\"},{\"payer\":\"MILLER COORS\",\"points\":-4700,\"timestamp\":\"now\"}]}"
+				},
+				{
+					"name": "Deduct Balance (Cleanup)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"points\":6300}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/:user_id/payout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								":user_id",
+								"payout"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Feb 2021 15:23:05 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60",
+							"name": "Keep-Alive",
+							"description": "Custom header"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "{\"deductions\":[{\"payer\":\"MILLER COORS\",\"points\":-5300,\"timestamp\":\"now\"},{\"payer\":\"DANNON\",\"points\":-1000,\"timestamp\":\"now\"}]}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5fe9ccf8-e6cb-436e-bb2e-f49f85aa0c9b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c614ef42-0bbe-4beb-bcb9-15e1fe78430f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "15341f53-4488-44e7-a24b-2c69f8b5f9b5",
+			"key": "host_uri",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"id": "357e697e-2048-4098-8ed6-3f3c014d6717",
+			"key": "api_url",
+			"value": "/api/v1",
+			"type": "string"
+		}
+	]
+}
